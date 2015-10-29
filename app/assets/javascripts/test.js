@@ -12,7 +12,7 @@ $(document).ready(function(){
       url: baseURL + 'api/projects/0.1/projects/',
       contentType: "application/json",
       data: JSON.stringify({
-      title: "Build me a lol website!",
+      title: "Build me a lolaeiojfaafaefaeiof website!",
        description: "I need a ecommerce website",
        currency: {
          id: 1
@@ -31,12 +31,17 @@ $(document).ready(function(){
         console.log(data)
         $.ajax({
         	method: 'PUT',
-        	url: '/' + 'user/' + gon.current_user.id,
+        	url: '/' + 'projects/' + gon.current_user.id,
         	contentType: "application/json",
-        	data: {
-        		user_id: gon.current_user.id,
-        		pfid: data.results.id
-        	}
+        	data: JSON.stringify({
+            user: {
+          		user_id: gon.current_user.id,
+          		pfid: data.result.id
+            }
+        	}),
+          dataType: 'json'
+        }).done(function(d){
+          console.log(d)
         })
     });  
 
