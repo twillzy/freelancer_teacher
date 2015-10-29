@@ -5,15 +5,19 @@
 <h5> Budget: </h5> <p> <%= @project.budget %> </p>
 <h5> Skills Required: </h5> <p> <%= @project.jobs %> </p>
 
-
-<% @project.bids.each do |bid| %>
-	<%= image_tag("#{ bid.avatar }") %>
-	<p> Name: <%= bid.name %> </p>
-	<p> Location: <%= bid.location %> </p>
-	<p> Reputation: <%= bid.reputation %> </p>
-	<p> Skills: <%= bid.skills %> </p>
-	<p> Proposal: <%= bid.proposal %> </p>
-<% end %>
+<br>
+<br>
+<div class="bids">
+	<% @project.bids.each do |bid| %>
+		<div class="bidder">
+			<%= image_tag("#{ bid.avatar }") %>
+			<p> Name: <%= link_to "#{ bid.name }", bid_path(bid.id) %> </p>
+			<p> Location: <%= bid.location %> </p>
+			<p> Reputation: <%= bid.reputation %> </p>
+			<p> Skills: <%= bid.skills %> </p>
+		</div>
+	<% end %>
+</div>
 
 
 <br>

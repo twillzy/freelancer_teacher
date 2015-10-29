@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   resources :users
   resources :teachers
+  resources :bids
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
