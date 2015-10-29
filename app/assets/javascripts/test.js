@@ -3,6 +3,19 @@ $(document).ready(function(){
 
 	var baseURL = 'https://www.freelancer.com/'
 	var localURl = 'localhost:3000/'
+  var title = $('#title').val();
+  var description = $('#description').val();
+  var currency = $('#currency').val();
+  var budget = $('#budget').val();
+  var jobs = $('#jobs').val();
+
+  console.log(title)
+  console.log(description)
+  console.log(currency)
+  console.log(budget)
+  console.log(jobs) 
+
+
 		$.ajaxSetup({
         headers: { 'Freelancer-Developer-Auth-V1': gon.api_id + ';' + gon.api_key }
     });
@@ -12,17 +25,22 @@ $(document).ready(function(){
       url: baseURL + 'api/projects/0.1/projects/',
       contentType: "application/json",
       data: JSON.stringify({
+<<<<<<< Updated upstream
       title: "Build me a lolaeiojfaafaefaeiof website!",
        description: "I need a ecommerce website",
+=======
+      title: title,
+       description: description,
+>>>>>>> Stashed changes
        currency: {
          id: 1
         },
           budget: {
-        minimum: 200
+        minimum: budget
             },
            jobs: [
         {
-        id: 3
+        name: "javascript"
         }
                 ]
         }),
@@ -31,6 +49,7 @@ $(document).ready(function(){
         console.log(data)
         $.ajax({
         	method: 'PUT',
+<<<<<<< Updated upstream
         	url: '/' + 'projects/' + gon.current_user.id,
         	contentType: "application/json",
         	data: JSON.stringify({
@@ -42,6 +61,18 @@ $(document).ready(function(){
           dataType: 'json'
         }).done(function(d){
           console.log(d)
+=======
+        	url: '/' + 'users/' + gon.current_user.id,
+        	contentType: "application/json",
+        	data: {
+            user: {
+        		user_id: gon.current_user.id,
+        		pfid: data.results.id
+        	}
+        }
+          
+
+>>>>>>> Stashed changes
         })
     });  
 

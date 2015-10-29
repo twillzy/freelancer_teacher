@@ -3,27 +3,27 @@
 	<%= form_for @project, :html => {:multipart => true} do |f| %>
 		<div class="form-group">
 			<%= f.label "Project's Title: " %>
-			<%= f.text_field :title, :class => 'form-control' %>
+			<%= f.text_field :title, :class => 'form-control', :id => 'title' %>
 		</div>
 
 		<div class="form-group">
 			<%= f.label "Description: " %>
-			<%= f.text_area :description, :class => 'form-control' %>
+			<%= f.text_area :description, :class => 'form-control', :id => 'description' %>
 		</div>
 
 		<div class="form-group">
 			<%= f.label "Currency: " %>
-			<%= f.text_field :currency, :class => 'form-control'%>
+			<%= f.text_field :currency, :class => 'form-control', :id => 'currency' %>
 		</div>
 
 		<div class="form-group">
 			<%= f.label "Budget: " %>
-			<%= f.text_field :budget, :class => 'form-control' %>
+			<%= f.text_field :budget, :class => 'form-control', :id => 'budget' %>
 		</div>
 
 		<div class="form-group">
 			<%= f.label "Jobs: " %>
-			<%= f.text_field :jobs, :class => 'form-control' %>
+			<%= f.text_field :jobs, :class => 'form-control', :id => 'jobs' %>
 		</div>
 		
 		<div class="submit-field">
