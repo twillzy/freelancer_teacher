@@ -24,10 +24,8 @@ class ProjectsController < ApplicationController
 		# binding.pry
 		@project = Project.new project_params
 		if @project.save
-			binding.pry
-			render :new
+			redirect_to projects_path
 		else
-			binding.pry
 			render :new
 		end
 	end
@@ -60,6 +58,6 @@ class ProjectsController < ApplicationController
 
 	private
 	def project_params
-		params.require(:project).permit(:title, :description, :currency, :budget, :jobs, :user_id)
+		params.require(:project).permit(:title, :description, :currency, :budget, :jobs, :user_id, :fpid)
 	end
 end
