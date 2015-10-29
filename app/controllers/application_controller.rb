@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :fetch_current_user
 
   def authorize
-    redirect_to '/login' unless current_user
+    redirect_to '/login' unless @current_user
   end
 
   private
