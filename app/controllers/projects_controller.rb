@@ -7,6 +7,9 @@ class ProjectsController < ApplicationController
 
 	def show
 		@project = Project.find_by :id => params[:id]
+		unless @current_user.id == @project.user_id
+			redirect_to projects_path
+		end
 	end
 
 	def new
@@ -37,7 +40,19 @@ class ProjectsController < ApplicationController
 
 	def edit
 		@project = Project.find params[:id]
+		unless @current_user.id == @project.user_id
+			redirect_to projects_path
+		end
 	end
+
+	def destroy
+		@project = Project.find params[:id]
+    @project.destroy
+    respond_to do |format|
+      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
 	private
 	def project_params
