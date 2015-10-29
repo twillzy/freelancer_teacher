@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
 	def show
 		@project = Project.find_by :id => params[:id]
+		gon.fpid = @project.fpid
 		unless @current_user.id == @project.user_id
 			redirect_to projects_path
 		end
@@ -14,9 +15,6 @@ class ProjectsController < ApplicationController
 
 	def new
 		@project = Project.new
-		gon.current_user = @current_user
-		gon.api_id = $client_id
-		gon.api_key = $client_key
 	end
 
 	def create
