@@ -30,7 +30,7 @@ $(document).ready(function(){
         method: "POST",
         url: baseURL + 'api/projects/0.1/projects/',
         contentType: "application/json",
-          data: JSON.stringify({
+        data: JSON.stringify({
            title: title1,
            description: description1,
            currency: {
