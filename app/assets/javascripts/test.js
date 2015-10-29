@@ -28,22 +28,6 @@ $(document).ready(function(){
         method: "POST",
         url: baseURL + 'api/projects/0.1/projects/',
         contentType: "application/json",
-        // data: JSON.stringify(
-        // {
-        //   title: title1,
-        //   description: description1,
-        //   currency: {
-        //       id: 1
-        //   },
-        //   budget: {
-        //       minimum: 1000
-        //   },
-        //   jobs: [
-        //       {
-        //           id: 3
-        //       }
-        //   ]
-        // }),
         data: JSON.stringify({
            title: title1,
            description: description1,

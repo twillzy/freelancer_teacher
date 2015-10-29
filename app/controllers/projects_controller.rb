@@ -21,11 +21,11 @@ class ProjectsController < ApplicationController
 
 	def create
 		require 'pry'
-		# binding.pry
 		@project = Project.new project_params
 		if @project.save
-			redirect_to projects_path
+	  	redirect_to projects_path
 		else
+			binding.pry
 			render :new
 		end
 	end
