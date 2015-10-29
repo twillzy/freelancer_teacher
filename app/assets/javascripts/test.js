@@ -5,13 +5,15 @@ $(document).ready(function(){
 	var baseURL = 'https://www.freelancer.com/'
 	var localURl = 'localhost:3000/' 
 
+  var url = window.location.pathname
+  var regEx =/\/projects\/\d+/
+
 	$.ajaxSetup({
       headers: { 'Freelancer-Developer-Auth-V1': gon.api_id + ';' + gon.api_key }
   });
 
   $('#submit-project').on('click', function(e){
 
-    // e.preventDefault();
     var title1 = $('#title').val();
     var description1 = $('#description').val();
     var currency1 = $('#currency').val();
@@ -28,23 +30,7 @@ $(document).ready(function(){
         method: "POST",
         url: baseURL + 'api/projects/0.1/projects/',
         contentType: "application/json",
-        // data: JSON.stringify(
-        // {
-        //   title: title1,
-        //   description: description1,
-        //   currency: {
-        //       id: 1
-        //   },
-        //   budget: {
-        //       minimum: 1000
-        //   },
-        //   jobs: [
-        //       {
-        //           id: 3
-        //       }
-        //   ]
-        // }),
-        data: JSON.stringify({
+          data: JSON.stringify({
            title: title1,
            description: description1,
            currency: {
@@ -84,4 +70,30 @@ $(document).ready(function(){
           })
       });  
     });
+
+   if ( url.match(regEx) ) {
+      console.log(gon.fpid)
+      var baseURL = 'https:www.freelancer.com/'
+      
+      $.ajax({
+        method: "GET",
+        url: baseURL + 'api/projects/0.1/bids/',
+        contentType: "application/json",
+        data: 'compact&projects[]=' + gon.fpid
+      }).done(function( data ) {
+        var bids = data.result.bids
+        bids.forEach(function(element){
+          $.ajax({
+            method: "GET",
+            url: baseURL + 'api/users/0.1/users/',
+            data: 'compact&users[]=' + element.bidder_id,
+            contentType: "application/json"
+            }).done(function(bata){
+              console.log(bata)
+            })     
+        })
+      }); 
+
+    }  
+
 })
