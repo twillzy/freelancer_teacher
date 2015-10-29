@@ -1,31 +1,47 @@
-<div class="form">
-	
+<div class="container">
 	<%= form_for @project, :html => {:multipart => true} do |f| %>
-		<div class="form-group">
-			<%= f.label "Project's Title: " %>
-			<%= f.text_field :title, :class => 'form-control', :id => 'title' %>
+		<div class="col-md-4">
 		</div>
-
-		<div class="form-group">
-			<%= f.label "Description: " %>
-			<%= f.text_area :description, :class => 'form-control', :id => 'description' %>
+		<div class="row">
+			<div class="form-group col-lg-4 col-centered">
+				<%= f.label "Project's Title: " %>
+				<%= f.text_field :title, :class => 'form-control', :id => 'title' %>
+			</div>
 		</div>
-
-		<div class="form-group">
-			<%= f.label "Currency: " %>
-			<%= f.text_field :currency, :class => 'form-control', :id => 'currency' %>
+		<div class="col-md-4">
 		</div>
-
-		<div class="form-group">
-			<%= f.label "Budget: " %>
-			<%= f.text_field :budget, :class => 'form-control', :id => 'budget' %>
+		<div class="row">
+			<div class="form-group col-lg-4 col-centered">
+				<%= f.label "Description: " %>
+				<%= f.text_area :description, :class => 'form-control', :id => 'description' %>
+			</div>
 		</div>
-
-		<div class="form-group">
-			<%= f.label "Required Skills: " %>
-			<%= f.text_field :jobs, :class => 'form-control', :id => 'jobs' %>
+		<div class="col-md-4">
 		</div>
-		
+		<div class="row">
+			<div class="form-group col-lg-4">
+				<%= f.label "Currency: " %>
+				<%= f.text_field :currency, :class => 'form-control', :id => 'currency' %>
+			</div>
+		</div>
+		<div class="col-md-4">
+		</div>
+		<div class="row">
+			<div class="form-group col-lg-4">
+				<%= f.label "Budget: " %>
+				<%= f.text_field :budget, :class => 'form-control', :id => 'budget' %>
+			</div>
+		</div>
+		<div class="col-md-4">
+		</div>
+		<div class="row">
+			<div class="form-group col-lg-4">
+				<%= f.label "Required Skills: " %>
+				<%= f.text_field :jobs, :class => 'form-control', :id => 'jobs' %>
+			</div>
+		</div>
+		<div class="col-md-4">
+		</div>
 		<div class="submit-field">
 			<div class="btn btn-primary" id="submit-project">Submit</div>
 		</div>
