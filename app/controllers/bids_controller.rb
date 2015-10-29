@@ -17,6 +17,6 @@ class BidsController < ActionController::Base
 
 	private
 	def bid_params
-		params.require(:bid).permit(:bidder_id, :bid_amount, :name, :location, :avatar, :reputation, :skills, :profile, :proposal, :project_id)
+		params.require(:bid).permit(:bidder_id, :bid_amount, :name, :location, :skills, :profile, :proposal, :project_id, :avatar)
 	end
 end

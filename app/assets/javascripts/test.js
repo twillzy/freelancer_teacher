@@ -79,17 +79,37 @@ $(document).ready(function(){
         method: "GET",
         url: baseURL + 'api/projects/0.1/bids/',
         contentType: "application/json",
-        data: 'compact&projects[]=' + gon.fpid
+        data: 'compact&projects[]=' + /* gon.fpid -> thats a hard coded val */ 8794268
       }).done(function( data ) {
+        console.log(data)
         var bids = data.result.bids
-        bids.forEach(function(element){
+        bids.forEach(function(element, index){
           $.ajax({
             method: "GET",
-            url: baseURL + 'api/users/0.1/users/',
-            data: 'compact&users[]=' + element.bidder_id,
+            url: baseURL + 'api/users/0.1/users/' + element.bidder_id + '/?/' + '&avatar&reputation_extra&jobs&profile_description',
             contentType: "application/json"
             }).done(function(bata){
               console.log(bata)
+              var userId = element.bidder_id.toString()
+              $.ajax({
+                method: "POST",
+                url: '/bids',
+                contentType: 'application/json',
+                data: JSON.stringify({ bid: {
+                  bidder_id: Number(userId),
+                  project_id: /* gon.fpid -> thats a hard coded val */ 8794268,
+                  bid_amount: element.amount,
+                  name: bata.result.username,
+                  location: bata.result.location.city,
+                  proposal: element.description,
+                  skills: bata.result.jobs[0].name,
+                  profile: bata.result.profile_description,
+                  avatar: 'https' + bata.avatar_cdn,
+                  reputation: bata.result.reputation.last12months.overall
+                } })
+              }).done(function(m){
+                  console.log('success')              
+                })
             })     
         })
       }); 
