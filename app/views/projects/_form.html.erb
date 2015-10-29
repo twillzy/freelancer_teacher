@@ -1,14 +1,4 @@
 <div class="form">
-
-#  id          :integer          not null, primary key
-#  title       :string
-#  description :string
-#  currency    :string
-#  budget      :string
-#  jobs        :string
-#  user_id     :integer
-#  teacher_id  :integer
-#  fpid        :integer
 	
 	<%= form_for @project, :html => {:multipart => true} do |f| %>
 		<div class="form-group">
@@ -17,36 +7,23 @@
 		</div>
 
 		<div class="form-group">
-			<%= f.label "Recipient's Email: " %>
-			<%= f.email_field :email, :class => 'form-control' %>
+			<%= f.label "Description: " %>
+			<%= f.text_area :description, :class => 'form-control' %>
 		</div>
 
 		<div class="form-group">
-			<%= f.label "Content: " %>
-			<%= f.text_area :content, :class => 'form-control', :rows => '4' %>
+			<%= f.label "Currency: " %>
+			<%= f.text_field :currency, :class => 'form-control'%>
 		</div>
 
 		<div class="form-group">
-			<%= f.label "Deliver On: " %>
-			<%= f.date_field :deliver_date, :class => 'form-control' %>
-		</div>
-		
-		<div class="form-group-checkbox">
-			<%= f.label "Mood: " %>
- 			<div class="checkbox">
-				<%= hidden_field_tag "letter[mood_ids][]", nil %>
-				<% Mood.all.each do |mood| %>
-				<div class="radio">
-					<%= check_box_tag "letter[mood_ids][]", mood.id, @letter.mood_ids.include?(mood.id) %>
-					<%= mood.name %>
-				</div>
-				<% end %>
- 			</div>
+			<%= f.label "Budget: " %>
+			<%= f.text_field :budget, :class => 'form-control' %>
 		</div>
 
 		<div class="form-group">
-			<%= f.label "Upload Image: " %>
-			<%= f.cl_image_upload :image_url, :class => 'form-control' %>
+			<%= f.label "Jobs: " %>
+			<%= f.text_field :jobs, :class => 'form-control' %>
 		</div>
 		
 		<div class="submit-field">
