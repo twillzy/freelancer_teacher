@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :projects
-  root :to => "pages#index"
+  root :to => "sessions#new"
   
   resources :users
   resources :teachers

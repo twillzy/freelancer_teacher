@@ -1,15 +1,15 @@
 <div class="user-form">
-<h1> Create an account with us and Freelancer </h1>
+<h2> Create an account or login </h2>
 <%= form_for @user do |f| %>
 
   <div class="field">
     <%= f.label :user_name %><br>
-    <%= f.text_area :user_name %>
+    <%= f.text_field :user_name %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_area :email %>
+    <%= f.text_field :email %>
   </div>
 
 
@@ -22,7 +22,7 @@
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
-
+  <br>
   <div class="field actions">
     <%= f.submit "Register", :class => "submit-user" %>
   </div>
@@ -30,7 +30,7 @@
 <% end %>
 </div>
 
-<h1>Login</h1>
+<h2>Login</h2>
 
 <%= form_tag '/login' do %>
 

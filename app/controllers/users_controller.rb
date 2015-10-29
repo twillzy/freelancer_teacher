@@ -3,6 +3,15 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    if current_user.present?
+      redirect_to projects_path
+    else
+      redirect_to login_path
+    end
+  end
+
+  def new
+    redirect_to login_path
   end
   
 	def edit

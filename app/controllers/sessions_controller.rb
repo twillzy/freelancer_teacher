@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
 
   def new
+    @user = User.new
+    if @current_user.present?
+      redirect_to projects_path
+    end
   end
 
   def create
