@@ -17,10 +17,14 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
+		require 'pry'
+		# binding.pry
 		@project = Project.new project_params
 		if @project.save
+			binding.pry
 			render :new
 		else
+			binding.pry
 			render :new
 		end
 	end

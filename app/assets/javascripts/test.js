@@ -11,7 +11,7 @@ $(document).ready(function(){
 
   $('#submit-project').on('click', function(e){
 
-    e.preventDefault();
+    // e.preventDefault();
     var title = $('#title').val();
     var description = $('#description').val();
     var currency = $('#currency').val();
@@ -40,15 +40,15 @@ $(document).ready(function(){
         //           ]
         //   }),
         {
-          title: "Build my Supefaefaefjiaor Mario Website!",
-          description: "I need this website to make visual basic GUIs",
-          currency: {
+          "title": "Builddddddd myyyyyy Saefaejfiaeojfuperbfiaefjioaejfioaejfioaejfioajrcuteeee Mario Website!",
+          "description": "I need this website to make visual basic GUIs",
+          "currency": {
               id: 1
           },
-          budget: {
+          "budget": {
               minimum: 1000
           },
-          jobs: [
+          "jobs": [
               {
                   id: 7
               }
@@ -58,13 +58,19 @@ $(document).ready(function(){
       }).done(function(data){
           console.log(data)
           $.ajax({
-            method: 'PUT',
-            url: '/' + 'projects/' + gon.current_user.id,
+            method: 'POST',
+            // url: '/' + 'projects/' + gon.current_user.id,
+            url: '/projects',
             contentType: "application/json",
             data: JSON.stringify({
-              user: {
+              project: {
                 user_id: gon.current_user.id,
-                pfid: data.result.id
+                pfid: data.result.id,
+                title: data.result.title,
+                description: data.result.description,
+                currency: data.result.currency,
+                budget: data.result.budget,
+                jobs: data.result.jobs.toString(),
               }
             }),
             dataType: 'json'
