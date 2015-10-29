@@ -1,0 +1,12 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.user_name %>
+</p>
+
+<% if @current_user.id.to_s == params[:id] %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
+  <%= link_to 'Back', users_path %>
+<% end %>
