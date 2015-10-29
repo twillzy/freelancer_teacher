@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
 	def show
 		@project = Project.find_by :id => params[:id]
+		gon.project_id = params[:id]
 		gon.fpid = @project.fpid
 		unless @current_user.id == @project.user_id
 			redirect_to projects_path
