@@ -12,65 +12,69 @@ $(document).ready(function(){
   $('#submit-project').on('click', function(e){
 
     // e.preventDefault();
-    var title = $('#title').val();
-    var description = $('#description').val();
-    var currency = $('#currency').val();
-    var budget = $('#budget').val();
-    var jobs = $('#jobs').val();
+    var title1 = $('#title').val();
+    var description1 = $('#description').val();
+    var currency1 = $('#currency').val();
+    var budget1 = $('#budget').val();
+    var jobs1 = $('#jobs').val();
 
-    console.log(title, description, currency, budget, jobs);
+    currency1 = parseFloat(currency1);
+    jobs1 = parseFloat(jobs1);
+    budget1 = parseFloat(budget1);
+
+    console.log(title1, description1, currency1, budget1, jobs1);
 
     $.ajax({
         method: "POST",
         url: baseURL + 'api/projects/0.1/projects/',
         contentType: "application/json",
-        data: JSON.stringify(
-        // title: title,
-        //  description: description,
-        //  currency: {
-        //    id: 1
+        // data: JSON.stringify(
+        // {
+        //   title: title1,
+        //   description: description1,
+        //   currency: {
+        //       id: 1
         //   },
-        //     budget: {
-        //   minimum: parseInt(budget)
-        //       },
-        //      jobs: [
-        //   {
-        //   id: 3
-        //   }
-        //           ]
-        //   }),
-        {
-          "title": "Builddddddd myyyyyy Saefaejfiaeojfuperbfiaefjioaejfioaejfioaejfioajrcuteeee Mario Website!",
-          "description": "I need this website to make visual basic GUIs",
-          "currency": {
-              id: 1
-          },
-          "budget": {
-              minimum: 1000
-          },
-          "jobs": [
-              {
-                  id: 7
-              }
-          ]
-        }),
+        //   budget: {
+        //       minimum: 1000
+        //   },
+        //   jobs: [
+        //       {
+        //           id: 3
+        //       }
+        //   ]
+        // }),
+        data: JSON.stringify({
+           title: title1,
+           description: description1,
+           currency: {
+               id: currency1
+           },
+           budget: {
+               minimum: budget1
+           },
+           jobs: [
+               {
+                   id: jobs1
+               }
+           ]
+         }),
         dataType: 'json'
       }).done(function(data){
           console.log(data)
           $.ajax({
             method: 'POST',
-            // url: '/' + 'projects/' + gon.current_user.id,
             url: '/projects',
             contentType: "application/json",
             data: JSON.stringify({
               project: {
                 user_id: gon.current_user.id,
-                pfid: data.result.id,
+                fpid: data.result.id,
                 title: data.result.title,
                 description: data.result.description,
-                currency: data.result.currency,
-                budget: data.result.budget,
-                jobs: data.result.jobs.toString(),
+                currency: data.result.currency.id.toString(),
+                budget: data.result.budget.minimum.toString(),
+                jobs: data.result.jobs[0].name,
               }
             }),
             dataType: 'json'
