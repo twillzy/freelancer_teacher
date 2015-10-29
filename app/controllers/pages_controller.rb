@@ -1,7 +1,11 @@
 class PagesController < ActionController::Base
   
   def index
-  	@user = User.new
+  	if @current_user.nil?
+  		@user = User.new
+	  else
+	  	redirect_to root_path
+	  end
   end
 
 end
