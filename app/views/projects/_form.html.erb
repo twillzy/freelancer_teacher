@@ -3,7 +3,7 @@
 		<div class="col-md-4">
 		</div>
 		<div class="row">
-			<div class="form-group col-lg-4 col-centered">
+			<div class="form-group col-lg-4">
 				<%= f.label "Project's Title: " %>
 				<%= f.text_field :title, :class => 'form-control', :id => 'title' %>
 			</div>
@@ -42,8 +42,10 @@
 		</div>
 		<div class="col-md-4">
 		</div>
-		<div class="submit-field">
-			<div class="btn btn-primary" id="submit-project">Submit</div>
+		<div class="row">
+			<div class="submit-field col-lg-4">
+				<div class="btn btn-primary" id="submit-project">Submit</div>
+			</div>
 		</div>
 	<% end %>
 
