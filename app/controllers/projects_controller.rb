@@ -6,6 +6,9 @@ class ProjectsController < ApplicationController
 
 	def new
 		@project = Project.new
+		gon.current_user = @current_user
+
+		raise 'hell'
 	end
 
 	def create
