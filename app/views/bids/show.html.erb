@@ -1,9 +1,12 @@
-<% @bider.each do |bider| %>
-	<h2> <%= bider.name %> </h2>
-	<%= image_tag("#{ bider.avatar }") %>
-	<p> Location: <%= bider.location %> </p>
-	<p> Reputation: <%= bider.reputation %> </p>
-	<p> Skills: <%= bider.skills %> </p>
-	<p> Proposal: <%= bider.proposal %> </p>
-	<p> Bid Amount: <%= bider.bid_amount %> for Project: <%= link_to "#{ @project.first.title }", project_path(@project.first.id) %></p>
-<% end %>
+<div class="col-md-5"></div>
+<div class="col-md-3">
+	<% @bider.each do |bider| %>
+		<h2> <%= bider.name %> </h2>
+		<%= image_tag("#{ bider.avatar }") %>
+		<p> Location: <%= bider.location %> </p>
+		<p> Reputation: <%= bider.reputation %> </p>
+		<p> Skills: <%= bider.skills %> </p>
+		<p> Proposal: <%= bider.proposal %> </p>
+		<p> Bid Amount: <%= bider.bid_amount %> for Project: <%= link_to "#{ @project.first.title }", project_path(@project.first.id) %></p>
+	<% end %>
+</div>
