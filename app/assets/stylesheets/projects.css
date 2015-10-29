@@ -3,3 +3,21 @@
 	padding: 20px;
 }
 
+.responsive-menu {
+	padding: 5px;
+	background-color: #D3D3D3;
+	height: 30px;
+	width: 100%;
+
+}
+
+.container {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.bider-show {
+	text-align: center;
+}
+
