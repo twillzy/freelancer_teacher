@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  console.log(gon.current_user.id)
+  // console.log(gon.current_user.id)
 
 	var baseURL = 'https://www.freelancer.com/'
 	var localURl = 'localhost:3000/' 
