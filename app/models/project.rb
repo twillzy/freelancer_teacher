@@ -10,6 +10,7 @@
 #  jobs        :string
 #  user_id     :integer
 #  teacher_id  :integer
+#  fpid        :integer
 #
 
 class Project < ActiveRecord::Base
