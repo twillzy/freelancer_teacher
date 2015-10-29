@@ -1,1 +1,14 @@
-<h2>All Projects</h2>
+<h2>Projects</h2>
+
+<hr>
+<%= link_to "New Teacher Request", new_project_path %>
+
+<% unless @crnt_projects.nil? %>
+	<h2> Current Requests </h2>
+	<% @crnt_projects.each do |project| %>
+		<li> <%= link_to "#{ project.title }", project_path(project.id) %> </li>
+	<% end %>
+<% else %>
+	<hr>
+	<h5>No current projects</h5>
+<% end %>

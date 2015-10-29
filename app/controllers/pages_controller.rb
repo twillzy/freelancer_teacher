@@ -4,7 +4,7 @@ class PagesController < ActionController::Base
   	if @current_user.nil?
   		@user = User.new
 	  else
-	  	redirect_to root_path
+	  	redirect_to projects_path
 	  end
   end
 
