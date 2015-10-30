@@ -72,14 +72,13 @@ $(document).ready(function(){
     });
 
    if ( url.match(regEx) ) {
-      console.log(gon.fpid)
       var baseURL = 'https:www.freelancer.com/'
       
       $.ajax({
         method: "GET",
         url: baseURL + 'api/projects/0.1/bids/',
         contentType: "application/json",
-        data: 'compact&projects[]=' + /* gon.fpid -> thats a hard coded val */ 8794268
+        data: 'compact&projects[]=' + gon.fpid
       }).done(function( data ) {
         console.log(data)
         var bids = data.result.bids
@@ -97,14 +96,14 @@ $(document).ready(function(){
                 contentType: 'application/json',
                 data: JSON.stringify({ bid: {
                   bidder_id: Number(userId),
-                  project_id: /* gon.fpid -> thats a hard coded val */ 8794268,
+                  project_id: gon.project_id,
                   bid_amount: element.amount,
                   name: bata.result.username,
                   location: bata.result.location.city,
                   proposal: element.description,
                   skills: bata.result.jobs[0].name,
                   profile: bata.result.profile_description,
-                  avatar: 'https' + bata.avatar_cdn,
+                  avatar: 'https:' + bata.result.avatar_cdn,
                   reputation: bata.result.reputation.last12months.overall
                 } })
               }).done(function(m){
