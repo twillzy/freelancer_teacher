@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   resources :projects
-  root :to => "sessions#new"
+
+  root :to => "pages#index"
+  
+
   resources :bids
   resources :users
 

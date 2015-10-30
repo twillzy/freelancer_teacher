@@ -1,10 +1,9 @@
 $(document).ready(function(){
 
-  $('.bid-check').on( 'click', function (e) {
-    e.preventDefault();
-    location.reload();
-  }); 
   console.log(gon.current_user.id)
+
+  // console.log(gon.current_user.id)
+
 
 	var baseURL = 'https://www.freelancer.com/'
 	var localURl = 'localhost:3000/' 
