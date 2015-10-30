@@ -8,6 +8,7 @@
 	background-color: #D3D3D3;
 	height: 30px;
 	width: 100%;
+	z-index: 1000;
 
 }
 
@@ -15,6 +16,7 @@
 	margin: 0;
 	padding: 0;
 	width: 100%;
+	text-align: center;
 }
 
 .bider-show {
