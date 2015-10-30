@@ -5,6 +5,9 @@ class BidsController < ActionController::Base
 	def show
 		@bider = Bid.where :id => params[:id]
 		@project = Project.where :id => @bider.first.project_id
+		unless @bider.projects.id == @project.first.id && @project.user_id == @current_user.id
+			redirect_to projects_path
+		end
 	end
 
 	def create
