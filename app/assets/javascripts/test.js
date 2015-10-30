@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+  $('.bid-check').on( 'click', function (e) {
+    e.preventDefault();
+    location.reload();
+  }); 
   console.log(gon.current_user.id)
 
 	var baseURL = 'https://www.freelancer.com/'
@@ -107,12 +111,17 @@ $(document).ready(function(){
                   reputation: bata.result.reputation.last12months.overall
                 } })
               }).done(function(m){
-                  console.log('success')              
+                  console.log('success')
                 })
             })     
         })
       }); 
+  
+    }
+  $('#bid-check').on( 'click', function (e) {
+    e.preventDefault();
+    console.log('lol');
+    location.reload(true);
+  }); 
+});
 
-    }  
-
-})
