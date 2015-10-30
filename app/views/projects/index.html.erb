@@ -1,22 +1,52 @@
-
-<div class="container projects">
-	<div class="col-md-5"></div>
-
-	<div class="col-md-3">
-		<h2>Projects</h2>
-
-		<hr>
-		<%= link_to "New Teacher Request", new_project_path %>
-
-		<% unless @crnt_projects.empty? %>
-			<hr>
-			<h2> Current Requests </h2>
-			<% @crnt_projects.each do |project| %>
-				<li> <%= link_to "#{ project.title }", project_path(project.id) %> </li>
-			<% end %>
-		<% else %>
-			<hr>
-			<h5>No current projects</h5>
-		<% end %>
-	</div>
-</div>
+<section id="services" class="services bg-primary">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-10 col-lg-offset-1">
+                <h1>Expand Your Mind</h1>
+                <hr class="small">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="service-item">
+                            <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-search-plus fa-stack-1x text-primary"></i>
+                        </span>
+                            <h4>
+                                <strong ><%= link_to "New Teacher Request", new_project_path, :style => "background: #337ab7; color: white; text-decoration: none;" %></strong>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <div class="service-item">
+                            <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-leanpub fa-stack-1x text-primary"></i>
+                        </span>
+                            <h4>
+                                <strong>My Requests</strong>
+                                <div class="col-md-12" style="padding-bottom: 10rem;">	
+									<% unless @crnt_projects.empty? %>
+										<ul style="text-align: left; margin: 0 auto; width: 25%; padding-top: 20px">
+											<% @crnt_projects.each do |project| %>
+											<li> <%= link_to "#{ project.title }", project_path(project.id), :style => 'color: white; font-size: 1.5rem; padding: 1rem; text-align: right;' %> </li>
+												<% end %>
+											<% else %>
+												<hr>
+												<h5>No current projects</h5>
+											<% end %>
+										</ul>									
+								</div>
+                            </h4>
+                   
+                           
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.col-lg-10 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
