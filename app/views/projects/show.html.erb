@@ -17,8 +17,10 @@
 				<%= image_tag("#{ bid.avatar }") %>
 				<p> Name: <%= link_to "#{ bid.name }", bid_path(bid.id) %> </p>
 				<p> Location: <%= bid.location %> </p>
-				<p> Reputation: <%= bid.reputation %> </p>
+
 				<p> Skills: <%= bid.skills %> </p>
+				<p><div class="reputation" data-reputation=<%=rand(1..5) %>>
+          </div></p>
 			</div>
 		<% end %>
 	</div>
@@ -30,3 +32,17 @@
 	-
 	<%= link_to "I no longer need help", project_path(@project.id), method: :delete, data: { confirm: 'Are you sure' } %>
 </div>
+
+<script>
+$(document).ready(function () {
+    $('.reputation').each(function () {
+        var rating = $(this).data('reputation');
+        $(this).raty({
+            starOn: "<%= image_path('star-on.png') %>",
+            starOff: "<%= image_path('star-off.png') %>",
+            score: rating,
+            readOnly: true
+      });
+    });
+  }) 
+</script>  
